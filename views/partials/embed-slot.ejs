@@ -1,0 +1,13 @@
+<div class="embed-slot" data-wasm="/embeds/<%= post.embed %>">
+  <span class="embed-badge">Interactive demo</span>
+  <div class="embed-loading">Loading interactive demo...</div>
+  <noscript>
+    <div class="embed-fallback">
+      <% if (post.embedScreenshot) { %>
+        <img src="<%= post.embedScreenshot %>" alt="Screenshot of the interactive demo">
+      <% } %>
+      <p><%= post.embedFallback || 'This post includes an interactive demo that requires JavaScript.' %></p>
+    </div>
+  </noscript>
+</div>
+<script defer src="/js/embed-loader.js"></script>

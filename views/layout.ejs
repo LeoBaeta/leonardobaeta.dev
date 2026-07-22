@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="oscilloscope">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%
+    const _pageTitle = (typeof title !== 'undefined' && title) ? title + ' - Leonardo Baeta' : 'Leonardo Baeta - Senior Embedded Linux Engineer';
+    const _pageDesc = (typeof metaDescription !== 'undefined' && metaDescription) ? metaDescription : 'Leonardo Baeta - senior embedded Linux / platform engineer writing about Yocto, C/C++, device platforms, and field reliability.';
+    const _meta = (typeof meta !== 'undefined') ? meta : null;
+    const _sc = (typeof siteConfig !== 'undefined' && siteConfig) ? siteConfig : {};
+    const _base = String(_sc.siteUrl || 'https://leonardobaeta.dev').replace(/\/$/, '');
+    const _reqPath = (typeof currentPath !== 'undefined' && currentPath) ? currentPath : '/';
+    // Posts carry their own absolute canonical; every other page self-references.
+    const _canonical = _meta ? _meta.canonical : _base + (_reqPath === '/' ? '/' : _reqPath);
+    const _ogImage = (_meta && _meta.ogImage) ? _meta.ogImage
+      : (_sc.ogImage ? _base + (String(_sc.ogImage).startsWith('/') ? '' : '/') + _sc.ogImage : null);
+  %>
+  <title><%= _pageTitle %></title>
+  <meta name="description" content="<%= _pageDesc %>">
+  <meta name="author" content="Leonardo Baeta">
+  <link rel="canonical" href="<%= _canonical %>">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="<%= _meta ? 'article' : 'website' %>">
+  <meta property="og:title" content="<%= _pageTitle %>">
+  <meta property="og:description" content="<%= _pageDesc %>">
+  <meta property="og:url" content="<%= _canonical %>">
+  <meta property="og:site_name" content="Leonardo Baeta">
+  <% if (_ogImage) { %><meta property="og:image" content="<%= _ogImage %>"><% } %>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="<%= _ogImage ? 'summary_large_image' : 'summary' %>">
+  <meta name="twitter:title" content="<%= _pageTitle %>">
+  <meta name="twitter:description" content="<%= _pageDesc %>">
+  <% if (_ogImage) { %><meta name="twitter:image" content="<%= _ogImage %>"><% } %>
+
+  <link rel="alternate" type="application/rss+xml" title="Leonardo Baeta - Posts" href="/feed.xml">
+  <% if (typeof jsonLd !== 'undefined' && jsonLd) { %>
+  <script type="application/ld+json"><%- jsonLd %></script>
+  <% } %>
+
+  <link rel="preload" href="/fonts/jetbrainsmono-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <% (typeof pageStyles !== 'undefined' ? pageStyles : []).forEach(function (href) { %>
+  <link rel="stylesheet" href="<%= href %>">
+  <% }); %>
+  <% if (gaMeasurementId) { %>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=<%= gaMeasurementId %>"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','<%= gaMeasurementId %>');</script>
+  <% } %>
+</head>
+<body>
+
+  <% const _path = (typeof currentPath !== 'undefined') ? currentPath : ''; %>
+  <header class="site-hd">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 12" width="14" height="8" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round"><path d="M1 6 Q 6 0, 11 6 T 21 6"/></svg>
+      </span>
+      <span>leonardobaeta<span class="brand-tld">.dev</span></span>
+    </a>
+    <nav class="site-nav">
+      <a href="/posts"<%- _path.indexOf('/posts') === 0 ? ' aria-current="page"' : '' %>>posts</a>
+      <a href="/about"<%- _path.indexOf('/about') === 0 ? ' aria-current="page"' : '' %>>about</a>
+      <a class="rss" href="/feed.xml">RSS</a>
+    </nav>
+  </header>
+
+  <%- body %>
+
+  <footer class="site-foot">
+    <div class="foot-cols">
+      <div class="foot-col-wide">
+        <p class="foot-h">leonardobaeta.dev</p>
+        <p>Field notes on embedded Linux, C/C++, and the hard edges of systems programming.</p>
+      </div>
+      <div>
+        <p class="foot-h">Navigate</p>
+        <ul>
+          <li><a href="/posts">Posts</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/feed.xml">RSS feed</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-h">Elsewhere</p>
+        <ul>
+          <% if (typeof siteConfig !== 'undefined' && siteConfig.authorGithub) { %><li><a href="<%= siteConfig.authorGithub %>" rel="me noopener">GitHub</a></li><% } %>
+          <% if (typeof siteConfig !== 'undefined' && siteConfig.authorLinkedIn) { %><li><a href="<%= siteConfig.authorLinkedIn %>" rel="me noopener">LinkedIn</a></li><% } %>
+          <li><a href="mailto:contact@leonardobaeta.dev">Email</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>(c) <%= new Date().getFullYear() %> Leonardo Baeta</span>
+    </div>
+  </footer>
+</body>
+</html>

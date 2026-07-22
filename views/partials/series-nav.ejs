@@ -1,0 +1,7 @@
+<nav class="series-nav" aria-label="Series navigation">
+  <span class="series-pos">Part <%= post.series_part %> of <%= post.total %></span>
+  <span class="series-links">
+    <% if (post.prev) { %><a href="/posts/<%= post.prev.slug %>" rel="prev"><- <%= post.prev.title %></a><% } %>
+    <% if (post.next) { %><a href="/posts/<%= post.next.slug %>" rel="next"><%= post.next.title %> -></a><% } %>
+  </span>
+</nav>

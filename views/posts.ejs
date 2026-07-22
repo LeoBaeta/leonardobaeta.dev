@@ -1,0 +1,16 @@
+<main class="post-list-page">
+  <header class="post-list-header">
+    <h1>Posts</h1>
+    <p class="post-list-sub">Notes on embedded Linux, C/C++, and the hard edges of systems programming.</p>
+  </header>
+
+  <% if (!posts.length) { %>
+    <p class="post-list-empty">No posts yet - check back soon.</p>
+  <% } else { %>
+    <ul class="post-list">
+      <% posts.forEach(function (p) { %>
+        <%- include('partials/post-list-item', { p }) %>
+      <% }); %>
+    </ul>
+  <% } %>
+</main>

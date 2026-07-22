@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.log
+
+# Local agent/editor state - must never reach a public repo. Do not rely on a
+# machine-level global gitignore for this; it does not travel with the clone.
+.claude/
+

@@ -1,0 +1,120 @@
+<main class="about">
+  <h1>About</h1>
+  <p class="about-sub">Leonardo Baeta | senior embedded Linux / platform engineer | Santos, Brazil</p>
+
+  <section class="about-sec">
+    <h2>The short version</h2>
+    <p>
+      I've spent fifteen-plus years writing C and C++ for hardware that has to
+      keep working: power-grid monitoring equipment, ECG monitors, X-ray
+      inspection systems, industrial automation. These days I'm the sole
+      firmware architect for a power-grid controller built from scratch -
+      custom Yocto Linux image, networking, security standards, and field
+      maintainability included.
+    </p>
+    <p>
+      What pulls me is the layer most software never touches: code that talks
+      to silicon, operating systems shaped into products, systems that have
+      to answer on time, the machinery everything else stands on. Fifteen
+      years in, and I still want to take it apart.
+    </p>
+  </section>
+
+  <section class="about-sec">
+    <h2>What this site is</h2>
+    <p>
+      In 2014 I bought a chest of hardware with big plans - a scope, radios,
+      displays, sensors. Life had other ideas. Ten years later I finally have
+      the skills, and the time, to open it. This site is me opening it in
+      public.
+    </p>
+    <p>
+      Most posts are <strong>field notes</strong>: me learning something in
+      public, dead ends included. A few are <strong>references</strong> -
+      consolidated pieces I stand behind once a topic has clicked. The label
+      on each post tells you which kind you're reading.
+    </p>
+    <p>
+      The site itself scratches the same itch: built from scratch in Node.js
+      and Express, no framework, self-hosted on a small VPS.
+    </p>
+  </section>
+
+  <section class="about-sec">
+    <h2>Focus areas</h2>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <h3>C / C++</h3>
+        <p>Fifteen-plus years of firmware and embedded systems - the constrained subset that survives real hardware.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Linux &amp; Yocto</h3>
+        <p>Board bring-up, device trees, BSP integration, custom embedded Linux images. Yocto-certified.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Security &amp; Reliability</h3>
+        <p>Connected field devices, grid cybersecurity standards, networking, diagnostics, and long-lived deployments.</p>
+      </div>
+      <div class="skill-card">
+        <h3>Graphics</h3>
+        <p>OpenGL down to the driver level, software rasterization, pixels with and without a GPU.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-sec">
+    <h2>Experience</h2>
+    <div class="tl">
+      <div class="tl-item">
+        <span class="tl-when">Present</span>
+        <div>
+          <p class="tl-role">Firmware Developer</p>
+          <p class="tl-org">Fitec Labs - Brazil</p>
+          <p>Sole firmware architect for an online tap-changer controller for power transformers. C++, custom Yocto image, built against grid cybersecurity standards (IEC 62443, IEC 62351).</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-when">2022-2025</span>
+        <div>
+          <p class="tl-role">Core System Developer</p>
+          <p class="tl-org">Parallelz - Toronto, Canada (remote)</p>
+          <p>One of a three-developer core team streaming Android apps by streaming GPU commands instead of pixels - including a custom OpenGL driver and a WebAssembly web client.</p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <span class="tl-when">Earlier</span>
+        <div>
+          <p class="tl-role">Embedded / C++ Developer</p>
+          <p class="tl-org">GE Grid Solutions, GE Healthcare, VMI Security, and others</p>
+          <p>Fifteen years of C/C++ on devices across the power grid, medical equipment, X-ray imaging, and industrial automation - from Belo Horizonte to Florianópolis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="about-sec">
+    <h2>Work with me</h2>
+    <p>
+      I'm targeting remote US and Canadian teams hiring for Senior or Staff
+      Embedded Linux Engineer, Platform Engineer, or Firmware Architect roles.
+      The best fit is a connected device or industrial product where the team
+      needs ownership below the application: Yocto/OpenEmbedded, BSPs, Linux
+      integration, networking, security, and field reliability.
+    </p>
+    <p>
+      I can also be useful on adjacent systems roles where C/C++, Linux
+      internals, graphics, WebAssembly, or low-level debugging matter more than
+      a conventional embedded title.
+    </p>
+  </section>
+
+  <section class="about-sec">
+    <h2>Get in touch</h2>
+    <p class="about-links">
+      <% if (siteConfig.authorLinkedIn) { %><a href="<%= siteConfig.authorLinkedIn %>" rel="me noopener">LinkedIn</a><% } %>
+      <% if (siteConfig.authorGithub) { %><a href="<%= siteConfig.authorGithub %>" rel="me noopener">GitHub</a><% } %>
+      <a href="mailto:contact@leonardobaeta.dev">Email</a>
+    </p>
+    <p>I'm happy to hear from you.</p>
+  </section>
+</main>

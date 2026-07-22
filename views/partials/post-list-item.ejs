@@ -1,0 +1,12 @@
+<li class="post-list-item">
+  <div class="post-list-labels">
+    <% if (p.postTypeLabel) { %><span class="post-type"><%= p.postTypeLabel %></span><% } %>
+    <% if (p.series) { %><span class="series-label"><%= p.series.title %> | Part <%= p.series.part %></span><% } %>
+  </div>
+  <h2 class="post-list-title"><a href="/posts/<%= p.slug %>"><%= p.title %></a></h2>
+  <p class="post-list-meta">
+    <time datetime="<%= p.date %>"><%= p.displayDate %></time>
+    <span>| <%= p.readingTime %> min read</span>
+  </p>
+  <p class="post-list-excerpt"><%= p.summary %></p>
+</li>

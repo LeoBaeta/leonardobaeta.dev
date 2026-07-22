@@ -1,0 +1,8 @@
+<footer class="author-byline">
+  <p class="author-name"><%= siteConfig.authorName %></p>
+  <% if (siteConfig.authorBio) { %><p class="author-bio"><%= siteConfig.authorBio %></p><% } %>
+  <p class="author-links">
+    <% if (siteConfig.authorGithub) { %><a href="<%= siteConfig.authorGithub %>" rel="me noopener">GitHub</a><% } %>
+    <% if (siteConfig.authorLinkedIn) { %><a href="<%= siteConfig.authorLinkedIn %>" rel="me noopener">LinkedIn</a><% } %>
+  </p>
+</footer>

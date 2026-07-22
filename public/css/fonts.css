@@ -1,0 +1,10 @@
+/* Self-hosted JetBrains Mono - this woff2 is byte-for-byte the exact file the
+   design reference embeds (verified by md5). Like the reference, only a normal
+   face is declared: italic text synthesizes an oblique slant, matching it exactly. */
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 100 800;
+  font-display: swap;
+  src: url('/fonts/jetbrainsmono-var.woff2') format('woff2');
+}

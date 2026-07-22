@@ -1,0 +1,5 @@
+<% var _next = typeof post.post_next === 'string' ? { url: post.post_next, title: 'Continue reading' } : post.post_next; %>
+<aside class="post-next">
+  <p class="post-next-label">Read next</p>
+  <a href="<%= _next.url %>"><%= _next.title || _next.url %></a>
+</aside>

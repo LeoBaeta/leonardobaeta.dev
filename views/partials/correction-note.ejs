@@ -1,0 +1,5 @@
+<aside class="correction-note" role="note">
+  <span class="correction-label">Correction</span>
+  <% if (post.correction.date) { %><time datetime="<%= post.correction.date %>"><%= post.correction.date %></time> | <% } %>
+  <%= typeof post.correction === 'string' ? post.correction : post.correction.note %>
+</aside>

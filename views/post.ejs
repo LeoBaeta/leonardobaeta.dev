@@ -1,0 +1,49 @@
+<div id="reading-progress" hidden></div>
+<aside id="post-toc" class="post-toc" hidden></aside>
+
+<article class="post">
+  <header class="post-header">
+    <% if (postTypeLabel) { %><p class="post-type"><%= postTypeLabel %></p><% } %>
+    <h1 class="post-title"><%= post.title %></h1>
+    <p class="post-meta">
+      <time datetime="<%= post.date %>"><%= displayDate %></time>
+      <% if (displayUpdated) { %><span class="post-updated">| Updated <time datetime="<%= post.updated %>"><%= displayUpdated %></time></span><% } %>
+      <span class="post-readtime">| <%= readingTime %> min read</span>
+    </p>
+    <% if (Array.isArray(post.tags) && post.tags.length) { %>
+      <ul class="tags">
+        <% post.tags.forEach(function (t) { %><li>#<%= t %></li><% }); %>
+      </ul>
+    <% } %>
+  </header>
+
+  <% if (post.series) { %>
+    <%- include('partials/series-nav', { post }) %>
+  <% } %>
+
+  <% if (post.correction) { %>
+    <%- include('partials/correction-note', { post }) %>
+  <% } %>
+
+  <div class="post-body">
+    <%- renderedHtml %>
+  </div>
+
+  <% if (post.embed) { %>
+    <%- include('partials/embed-slot', { post }) %>
+  <% } %>
+
+  <% if (post.series) { %>
+    <%- include('partials/series-nav', { post }) %>
+  <% } %>
+
+  <% if (post.post_next) { %>
+    <%- include('partials/post-next', { post }) %>
+  <% } %>
+
+  <%- include('partials/author-byline', { siteConfig }) %>
+</article>
+
+<script defer src="/js/copy-code.js"></script>
+<script defer src="/js/toc.js"></script>
+<script defer src="/js/reading-progress.js"></script>
